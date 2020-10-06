@@ -10,5 +10,5 @@ deploy:
   provider: heroku
   api_key:
     secure: c582c132-56c0-4e5d-ad05-d38ec8027fba
-  app: watch-party
+  app: viewing-party13
   run: rails db:migrate
