@@ -9,6 +9,10 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: c582c132-56c0-4e5d-ad05-d38ec8027fba
+    secure: XxRPJun+0wqwTy755NCXLR/xcwAriWeFEpUMcVuOW7dO1j34xqexsVES1InHKogQSnvWEaJt+DYNaYwmpSppqTegM5UMyKBRQps8xWu2AVCzwyG1n/EDfhksozs6KFgrkd8V2Gfs3GQi65pza6u2gWSZJcGBF5ZAaL4dG2dzoXY7qVK/+ycLLFAgNUoZf55e0LzO72fbyx7OrXFtAXpBxC2vXqN0wt6C7d9EGKBioy1Fr/ZouCtPq6akpauhx0FImKkPUBAoe4UUo6P0OvhREMi9Rw23KNh+kX40p2YW94MyBkbxjzLXI95b1h4LF7jBbQOaKz8ntfZuLgQAwx1vpbZN3psm+DXu6pNjulA7IInXu644IWFbXogi+3ljMkUDrA9RmIwVcGTASAKXoUS8S8eRKZMiTHhxYf3NFwC9JbJhTg+Qsw7pFPMldBjncCh2gneMxZ6vyupamycpCtV8C5/o2vgdd+WMHpfLSB9WMcmboItPnqd3LiPOwm7iIHGUp3SYfzt2VPciAWKZLISORQyMo+nJzZr6jn6gg/IVf5JEYa70MdMy5BsBWMAxWOZvqc0s4tDTIJ1fr0S+pGKyDq9fB51wloQ50M6oUK7iU874MvK1oOWMWDqhtwSkbFfLScNfk0JqfwynsiYd3W5pzWFicCsUkFwFRB5drEc4DC0=
   app: viewing-party13
-  run: rails db:migrate
+  on:
+    repo: Miguel-Enrique13/viewing_party
+    branch: main
+  skip_cleanup: 'true'
+  email_notifications: 'false'
