@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user, only: :index
 
-  def new
-  end
+  def new; end
 
   def create
     @user = User.new(user_params)
@@ -16,10 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-  end
+  def index; end
 
   private
+
   def user_params
     params.permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
   end
