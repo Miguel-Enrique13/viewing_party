@@ -29,3 +29,14 @@ footer {
   align-self: baseline;
   flex-direction: row;
 }
+
+.error-flash {
+  padding: 10px;
+  background-color: red;
+  color: white;
+}
+.success-flash {
+  padding: 10px;
+  background-color: green;
+  color: white;
+}
