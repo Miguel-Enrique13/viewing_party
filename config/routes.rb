@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :edit, :destroy]
 
   resources :discover, only: :index
+
+  resources :movies, only: :index
 end
