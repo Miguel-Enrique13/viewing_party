@@ -8,7 +8,7 @@ class MovieService
     aggregate('search/movie', params)
   end
 
-  def aggregate(url, params = {} )
+  def aggregate(url, params = {})
     movies = []
     page = 0
     while movies.size < 40

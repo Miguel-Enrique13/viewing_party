@@ -31,6 +31,6 @@ class Movie
   end
 
   def formatted_runtime
-    "#{@runtime/60} hr #{@runtime % 60 } min"
+    "#{@runtime / 60} hr #{@runtime % 60} min"
   end
 end
