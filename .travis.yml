@@ -3,6 +3,8 @@ rbenv:
 - 2.5.3
 addons:
   postgresql: 9.6
+cache:
+- bundler
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
@@ -16,4 +18,3 @@ deploy:
     branch: main
   skip_cleanup: 'true'
   email_notifications: 'false'
-  cache: bundler
