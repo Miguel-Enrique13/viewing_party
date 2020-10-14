@@ -1,14 +1,26 @@
 class MovieService
   def top_rated
-    aggregate('movie/top_rated')
+    accumulate('movie/top_rated')
   end
 
   def search(query)
     params = { query: query }
-    aggregate('search/movie', params)
+    accumulate('search/movie', params)
   end
 
-  def aggregate(url, params = {})
+  def details(movie_id)
+    to_json("movie/#{movie_id}")
+  end
+
+  def cast(movie_id)
+    to_json("movie/#{movie_id}/credits")
+  end
+
+  def reviews(movie_id)
+    to_json("movie/#{movie_id}/reviews")
+  end
+
+  def accumulate(url, params = {})
     movies = []
     page = 0
     while movies.size < 40

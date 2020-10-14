@@ -8,9 +8,4 @@ class ApplicationController < ActionController::Base
   def require_user
     render file: '/public/404' if current_user.nil?
   end
-
-  def tmdb_query
-    query = params[:query]
-    query.sub(' ', '%20') if params[:query]
-  end
 end

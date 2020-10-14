@@ -1,11 +1,15 @@
 class MoviesController < ApplicationController
-  before_action :require_user, only: :index
+  before_action :require_user
 
   def index
-    @movies = if tmdb_query
-                SearchResults.movie_search(tmdb_query)
+    @movies = if params[:query]
+                SearchResults.movie_search(params[:query])
               else
                 SearchResults.top_rated_movies
               end
+  end
+
+  def show
+    @movie = SearchResults.movie_details(params[:id])
   end
 end

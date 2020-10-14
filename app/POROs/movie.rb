@@ -16,6 +16,7 @@ class Movie
     @overview = data[:overview]
     @genres = format_genres(data[:genres]) if data[:genres]
     @cast = format_cast(data[:cast]) if data[:cast]
+    @reviews = generate_reviews(data[:reviews]) if data[:reviews]
   end
 
   def format_genres(genres)
@@ -27,7 +28,7 @@ class Movie
   end
 
   def generate_reviews(reviews)
-    reviews.map { |review_data| Review.new(review_data) }
+    reviews[:results].map { |review_data| Review.new(review_data) }
   end
 
   def formatted_runtime
