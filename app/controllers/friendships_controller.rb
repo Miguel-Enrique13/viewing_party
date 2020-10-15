@@ -6,7 +6,7 @@ class FriendshipsController < ApplicationController
       Friendship.recipricate_friendship(current_user.id, @friend.id)
       flash[:success] = "#{@friend.username} has been added to your friends!"
     else
-      flash[:error] = "User does not exist"
+      flash[:error] = 'User does not exist'
     end
     redirect_to users_url
   end
