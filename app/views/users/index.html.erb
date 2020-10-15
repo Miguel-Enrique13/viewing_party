@@ -1,8 +1,23 @@
 <%= button_to 'Discover Movies!', discover_index_path, method: :get %>
 
-<div class="Friends">
+<div id="friends">
+  <div id="friends-search">
+    <%= render partial: 'friend_request', locals: {path: friendships_path, button_text: 'Add Friends'} %>
+  </div>
+
+  <div id="friend-list">
+    <% if @current_user.friends.empty? %>
+      <p>You currently have no friends</p>
+    <% else %>
+      <ul>
+        <% @current_user.friends.each do |friend| %>
+        <li><%= friend.username %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
 
-<div class="Party">
+<div id="party">
 
 </div>

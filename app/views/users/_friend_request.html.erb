@@ -1,0 +1,5 @@
+<%= form_tag path, method: :post do %>
+  <%= label_tag :email, "Search Email:" %>
+  <%= text_field_tag :email, nil, placeholder: 'Insert friends email' %>
+  <%= submit_tag button_text %>
+<% end %>
