@@ -18,6 +18,41 @@
   </div>
 </div>
 
-<div id="party">
+<div id="host">
+  <h1>Host parties: </h1>
+  <% if @current_user.parties.any? %>
+      <th>Movie</th>
+      <th>Date</th>
+      <th>Time</th>
 
+      <% @current_user.parties.each do |party|  %>
+      <div id="party-<%=party.id%>">
+        <tr><%= party.movie_title %></tr>
+        <tr><%= party.date.strftime("%d %B %Y") %></tr>
+        <tr><%= party.date.strftime("%I:%M %p") %></tr>
+      </div>
+      <% end %>
+  <% else %>
+    <p>Not hosting any parties</p>
+  <% end %>
+</div>
+
+
+<div id="invited">
+  <h1>Invited parties:</h1>
+  <% if @current_user.invitations.any? %>
+      <th>Movie</th>
+      <th>Date</th>
+      <th>Time</th>
+
+      <% @current_user.invitations.each do |invite|  %>
+      <div id="invite-<%=invite.id%>">
+        <tr><%= invite.movie_title %></tr>
+        <tr><%= invite.date.strftime("%d %B %Y") %></tr>
+        <tr><%= invite.date.strftime("%I:%M %p") %></tr>
+      </div>
+      <% end %>
+  <% else %>
+    <p>Not invited to any parties</p>
+  <% end %>
 </div>

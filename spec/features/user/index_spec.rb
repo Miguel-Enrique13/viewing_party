@@ -27,7 +27,8 @@ RSpec.describe "User Dashboard", type: :feature do
 
     expect(page).to have_button('Discover Movies!')
     expect(page).to have_css("#friends")
-    expect(page).to have_css("#party")
+    expect(page).to have_css("#host")
+    expect(page).to have_css("#invited")
   end
 
   describe "Should have a friends section" do
