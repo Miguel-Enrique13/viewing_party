@@ -13,5 +13,7 @@ RSpec.describe User, type: :model do
   describe "Relationships" do
     it { should have_many :friendships }
     it { should have_many(:friends).through(:friendships) }
+    it { should have_many :parties }
+    it { should have_many :invitations }
   end
 end

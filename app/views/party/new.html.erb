@@ -1,0 +1,28 @@
+<%= form_tag party_index_path, method: :post do %>
+  <h1>Creating Viewing Party for <%= @movie_title %></h1>
+
+  <%= hidden_field_tag :movie_id, @movie_id %>
+  <%= hidden_field_tag :movie_title, @movie_title %>
+  <%= hidden_field_tag :movie_runtime, @movie_runtime %>
+
+  <%= label_tag :date, "Date & Time:" %>
+  <%= datetime_select :date, :post, {include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 5, minute_step: 15, ampm: true}%>
+
+  <%= label_tag :duration, "Duration:" %>
+  <%= text_field_tag :duration, nil, placeholder: "minimum duration of #{@movie_runtime} minutes", min: @movie_runtime %>
+
+
+  <p>Invite Friends:</p>
+  <% if @current_user %>
+    <% @current_user.friends.each do |friend| %>
+    <div id="friend-<%= friend.id%>">
+      <%= check_box_tag 'friends[]', friend.id %>
+      <%= label_tag friend.username %>
+    </div>
+      <% end %>
+  <% else %>
+     <p>You currently have no friends</p>
+  <% end %>
+
+  <%= submit_tag "Create Viewing Party" %>
+<% end  %>
