@@ -10,12 +10,17 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to users_url
     else
-      flash[:error] = @user.errors.full_messages.to_sentence
+      flash[:danger] = @user.errors.full_messages.to_sentence
       redirect_to new_user_url
     end
   end
 
   def index; end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
+  end
 
   private
 

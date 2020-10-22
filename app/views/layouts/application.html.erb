@@ -9,11 +9,39 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-sm navbar-secondary bg-secondary">
+      <% if @current_user %>
+        <a href="<%=users_path%>" class="navbar-brand">Viewing Party</a>
+      <% else %>
+        <a href="<%=root_path%>" class="navbar-brand">Viewing Party</a>
+      <% end %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <% if @current_user  %>
+          <li class="nav-item">
+            <%= link_to "profile", users_path, method: :get, class: 'nav-link' %>
+          </li>
+          <li>
+            <%= link_to "log out", user_path(@current_user.id), method: :delete, class: 'nav-link' %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to 'register', new_user_path, method: :get, class: 'nav-link' %>
+          </li>
+          <li>
+            <%= link_to 'log in', new_login_path, method: :get, class: 'nav-link' %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
     <% flash.each do |name, msg| %>
-      <div class="<%=name%>-flasg">
+      <div class="alert alert-<%=name%>">
         <p><%= msg %></p>
       </div>
     <% end %>
+
     <main>
       <%= yield %>
     </main>

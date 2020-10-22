@@ -6,7 +6,7 @@ describe "When I first visit the app" do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Welcome to Viewing Party!")
-    expect(page).to have_content("The app that lets you set up movie date with your friends!")
+    expect(page).to have_content("The app that lets you set up movie dates with your friends!")
     expect(page).to have_button("login")
     expect(page).to have_button("register")
   end

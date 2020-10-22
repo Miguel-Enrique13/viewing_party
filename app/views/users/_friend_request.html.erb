@@ -1,5 +1,12 @@
-<%= form_tag path, method: :post do %>
-  <%= label_tag :email, "Search Email:" %>
-  <%= text_field_tag :email, nil, placeholder: 'Insert friends email' %>
-  <%= submit_tag button_text %>
+<%= form_tag path, method: :post, class: 'form-inline float-left' do %>
+
+  <div class="form-group mb-2">
+    <%= label_tag :email, "Search Email:", class: 'col-bg-2 col-form-label' %>
+  </div>
+
+  <div class="form-group mx-3 mb-2">
+    <%= text_field_tag :email, nil, placeholder: 'Insert friends email', class: 'form-control' %>
+  </div>
+
+  <%= submit_tag button_text, class: 'btn btn-secondary mb-2' %>
 <% end %>

@@ -6,7 +6,8 @@ class Movie
               :overview,
               :genres,
               :cast,
-              :reviews
+              :reviews,
+              :poster
 
   def initialize(data)
     @id = data[:id]
@@ -17,6 +18,7 @@ class Movie
     @genres = format_genres(data[:genres]) if data[:genres]
     @cast = format_cast(data[:cast]) if data[:cast]
     @reviews = generate_reviews(data[:reviews]) if data[:reviews]
+    @poster = "https://image.tmdb.org/t/p/w185/#{data[:poster_path]}" if data[:poster_path]
   end
 
   def format_genres(genres)

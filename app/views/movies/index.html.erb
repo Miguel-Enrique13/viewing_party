@@ -1,17 +1,21 @@
 <%= render partial:'shared/search' %>
 
 <% if @movies %>
-  <table class='top-rated'>
-    <tr>
-      <th>Title</th>
-      <th>Vote Average</th>
-    </tr>
-    <% @movies.each do |movie| %>
-    <tr class='movie-row' id=<%="movie-#{movie.id}"%>>
-      <td><%= link_to movie.title, movie_path(movie.id) %></td>
-      <td><%= movie.vote_average %></td>
-    </tr>
-    <% end %>
+  <table id='top-rated' class="table mt-2">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Vote Average</th>
+      </tr>
+      <% @movies.each do |movie| %>
+      <div id="movie-rows">
+        <tr id=<%="movie-#{movie.id}"%>>
+          <td><%= link_to movie.title, movie_path(movie.id) %></td>
+          <td><%= movie.vote_average %></td>
+        </tr>
+        <% end %>        
+      </div>
+    </thead>
   </table>
 <% else %>
   <h3>No matching results.</h3>
