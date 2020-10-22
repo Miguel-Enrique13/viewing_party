@@ -8,7 +8,7 @@ Builds are run by [Travis CI](https://travis-ci.org/)
 
 Deployment is handled by Heroku and can be accessed here: [Viewing Party](https://viewing-party13.herokuapp.com/)
 
-You can create and account OR use this already made account with friends and parties:
+You can create an account OR use this already made account with friends and parties:
 
 `username: user`
 `password: password`
