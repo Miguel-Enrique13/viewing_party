@@ -1,21 +1,40 @@
-<%= form_tag path, method: method do %>
-  <%= label_tag :first_name, 'First Name' %>
-  <%= text_field_tag :first_name %>
+<%= form_tag path, method: method, class: 'main-form' do %>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= label_tag :first_name, 'First Name' %>
+        <%= text_field_tag :first_name, nil,  class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="col">
+      <div class="form-group">
+        <%= label_tag :last_name, 'Last Name' %>
+        <%= text_field_tag :last_name, nil,  class: 'form-control' %>
+      </div>
+    </div>
+  </div>
 
-  <%= label_tag :last_name, 'Last Name' %>
-  <%= text_field_tag :last_name %>
 
-  <%= label_tag :username, 'Username' %>
-  <%= text_field_tag :username %>
+  <div class="form-group">
+    <%= label_tag :username, 'Username' %>
+    <%= text_field_tag :username, nil,  class: 'form-control' %>
+  </div>
 
-  <%= label_tag :email, 'Email' %>
-  <%= text_field_tag :email %>
+  <div class="form-group">
+    <%= label_tag :email, 'Email' %>
+    <%= text_field_tag :email, nil,  class: 'form-control' %>
+  </div>
 
-  <%= label_tag :password, 'Password' %>
-  <%= password_field_tag :password %>
+  <div class="form-group">
+    <%= label_tag :password, 'Password' %>
+    <%= password_field_tag :password, nil,  class: 'form-control' %>
+  </div>
 
-  <%= label_tag :password_confirmation, 'Password Confirmation' %>
-  <%= password_field_tag :password_confirmation %>
+  <div class="form-group">
+    <%= label_tag :password_confirmation, 'Password Confirmation' %>
+    <%= password_field_tag :password_confirmation, nil,  class: 'form-control' %>
+  </div>
 
-  <%= submit_tag button_text %>
+  <%= submit_tag button_text, class: 'btn btn-primary' %>
 <% end %>

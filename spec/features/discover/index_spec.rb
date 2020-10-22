@@ -11,14 +11,6 @@ RSpec.describe "As an authenticated User " do
       visit discover_index_path
     end
 
-    it "should have a button for top 40 movies" do
-      VCR.use_cassette("top_40_rated_movies", allow_playback_repeats: true) do
-        expect(page).to have_button('Discover Top 40 Movies')
-        click_on('Discover Top 40 Movies')
-        expect(current_path).to eq(movies_path)
-      end
-    end
-
     it "should have a search bar for movies" do
       VCR.use_cassette("Twilight_search_results") do
         expect(page).to have_button('Search')

@@ -11,7 +11,9 @@ RSpec.describe 'User Registration', type: :feature do
 
     visit root_path
 
-    click_on 'register'
+    within('#register-button') do
+      click_on 'register'
+    end
 
     expect(current_path).to eq(new_user_path)
 
@@ -41,7 +43,9 @@ RSpec.describe 'User Registration', type: :feature do
 
     visit root_path
 
-    click_on 'register'
+    within('#register-button') do
+      click_on 'register'
+    end
 
     expect(current_path).to eq(new_user_path)
 
@@ -64,7 +68,9 @@ RSpec.describe 'User Registration', type: :feature do
 
     visit root_path
 
-    click_on 'register'
+    within('#register-button') do
+      click_on 'register'
+    end
 
     expect(current_path).to eq(new_user_path)
 
@@ -87,7 +93,9 @@ RSpec.describe 'User Registration', type: :feature do
 
     visit root_path
 
-    click_on 'register'
+    within('#register-button') do
+      click_on 'register'
+    end
 
     expect(current_path).to eq(new_user_path)
 

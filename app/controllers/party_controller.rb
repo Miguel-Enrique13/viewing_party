@@ -3,12 +3,11 @@ class PartyController < ApplicationController
   include PartyHelper
 
   def new
-    @movie_id = params[:movie_id]
-    @movie_runtime = params[:movie_runtime]
-    @movie_title = params[:movie_title]
+    movie_info
   end
 
   def create
+    movie_info
     party = @current_user.parties.new(party_params)
     party_creation(party)
   end

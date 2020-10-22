@@ -1,7 +1,9 @@
-<%= button_to "Discover Top 40 Movies", movies_path, method: :get %>
-
-<%= form_tag(movies_path, method: :get) do %>
-  <%= label_tag(:query, 'Search for:') %>
-  <%= text_field_tag(:query, nil, placeholder: 'Movie Title') %>
-  <%= submit_tag 'Search' %>
+<%= form_tag movies_path, method: :get, class: 'form-inline' do %>
+<div class="form-group mb-2">
+  <%= label_tag :query, 'Search for:', class: 'col-bg-2 col-form-label' %>
+</div>
+<div class="form-group mx-3 mb-2">
+  <%= text_field_tag :query, nil, placeholder: 'Movie Title', class: 'form-control' %>
+</div>
+  <%= submit_tag 'Search', class: 'btn btn-secondary mb-2' %>
 <% end %>

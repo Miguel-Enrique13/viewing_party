@@ -1,4 +1,14 @@
 <h1>Welcome to Viewing Party!</h1>
-<h3>The app that lets you set up movie date with your friends!</h3>
-<%= button_to 'login', new_login_path, method: :get %>
-<%= button_to 'register', new_user_path, method: :get %>
+<h1>The app that lets you set up movie dates with your friends!</h1>
+
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-6 text-right">
+      <%= button_to 'login', new_login_path, method: :get, class: 'btn btn-primary btn-lg'%>
+    </div>
+
+    <div class="col-6 text-left" id="register-button">
+      <%= button_to 'register', new_user_path, method: :get, class: 'btn btn-dark btn-lg'%>
+    </div>
+  </div>
+</div>

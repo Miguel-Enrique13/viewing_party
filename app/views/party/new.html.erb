@@ -1,28 +1,34 @@
-<%= form_tag party_index_path, method: :post do %>
+<%= form_tag party_index_path, method: :post, class: 'main-form' do %>
   <h1>Creating Viewing Party for <%= @movie_title %></h1>
 
   <%= hidden_field_tag :movie_id, @movie_id %>
   <%= hidden_field_tag :movie_title, @movie_title %>
   <%= hidden_field_tag :movie_runtime, @movie_runtime %>
 
-  <%= label_tag :date, "Date & Time:" %>
-  <%= datetime_select :date, :post, {include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 5, minute_step: 15, ampm: true}%>
+  <div class="form-group">
+    <h5><%= label_tag :date, "Date & Time:" %></h5>
+    <%= datetime_select :date, :post, {include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 5, minute_step: 15, ampm: true}%>
+  </div>
 
-  <%= label_tag :duration, "Duration:" %>
-  <%= text_field_tag :duration, nil, placeholder: "minimum duration of #{@movie_runtime} minutes", min: @movie_runtime %>
+  <div class="form-group">
+    <h5><%= label_tag :duration, "Duration:" %></h5>
+    <%= text_field_tag :duration, nil, placeholder: "minimum duration of #{@movie_runtime} minutes", min: @movie_runtime, class: 'form-control'%>
+  </div>
 
 
-  <p>Invite Friends:</p>
+  <h5 class="text-left">Invite Friends:</h5>
   <% if @current_user %>
     <% @current_user.friends.each do |friend| %>
-    <div id="friend-<%= friend.id%>">
-      <%= check_box_tag 'friends[]', friend.id %>
-      <%= label_tag friend.username %>
-    </div>
-      <% end %>
+      <div class="form-group row mb-0">
+        <div class="form-check" id="friend-<%=friend.id%>">
+            <%= check_box_tag 'friends[]', friend.id%>
+            <%= label_tag friend.username%>
+        </div>
+      </div>
+    <% end %>
   <% else %>
      <p>You currently have no friends</p>
   <% end %>
 
-  <%= submit_tag "Create Viewing Party" %>
+  <%= submit_tag "Create Viewing Party", class: 'btn btn-secondary mt-1' %>
 <% end  %>

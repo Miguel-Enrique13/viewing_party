@@ -111,7 +111,7 @@ describe "As an authenticated user" do
 
         click_on 'Create Viewing Party'
 
-        expect(current_path).to eq(new_party_path)
+        expect(current_path).to eq(movie_path(1124))
         expect(page).to have_content("Duration must be greater than or equal to 130")
       end
     end

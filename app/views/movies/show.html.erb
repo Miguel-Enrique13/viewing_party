@@ -1,24 +1,46 @@
-<%= button_to "Create Viewing Party", new_party_path, method: :get, params: {movie_id: @movie.id, movie_title: @movie.title, movie_runtime: @movie.runtime} %>
-
-<div id="movie-info">
-  <p>Title: <%= @movie.title %></p>
-  <p>Vote Average: <%= @movie.vote_average %></p>
-  <p>Runtime: <%= @movie.formatted_runtime %></p>
-  <p>Genres: <%= @movie.genres %></p>
-  <p><%= @movie.overview %></p>
+<%= button_to "Create Viewing Party", new_party_path, method: :get, params: {movie_id: @movie.id, movie_title: @movie.title, movie_runtime: @movie.runtime}, class: 'btn btn-outline-primary btn-block create-viewing-party-button'%>
+<div id="movie-info" class="card mb-5" style="width: 70%; margin: auto;">
+  <div class="card-header">
+    <h1><%= @movie.title %></h1>
+  </div>
+  <div class="movie-poster my-2 text-center">
+    <%= image_tag @movie.poster %>
+  </div>
+  <div class="card-body">
+    <h5 class="text-center">Vote Average: <%= @movie.vote_average %></h5>
+    <h5 class="text-center">Runtime: <%= @movie.formatted_runtime %></h5>
+    <h5 class="text-center">Genres: <%= @movie.genres %></h5>
+  </div>
+  <div class="card-footer">
+    <h1>Overview</h1>
+    <p><%= @movie.overview %></p>
+  </div>
 </div>
 
-<ul id="actors">
-  <% @movie.cast.each do |actor| %>
-    <li><%= actor %></li>
-  <% end %>
-</ul>
+<div class="card mb-5" style="width: 70%; margin: auto;">
+  <div class="card-header" data-toggle="collapse" href="#card-collapse-cast" role="button">
+    <h1>Cast</h1>
+  </div>
+    <div class="card-body collapse" id="card-collapse-cast">
+      <ul class="list-group list-group-flush" id="actors">
+        <% @movie.cast.each do |actor| %>
+        <li class="list-group-item"><h5><%= actor %></h5></li>
+        <% end %>
+      </ul>
+    </div>
+</div>
 
-<p>Total Reviews: <%= @movie.reviews.count %></p>
+<h1>Reviews</h1>
+
+<h2>Total Reviews: <%= @movie.reviews.count %></h2>
 
 <% @movie.reviews.each do |review| %>
-  <div class="card" id="review-<%=review.id%>">
-    <p>Author: <%= review.author %></p>
-    <p><%= review.content %></p>
+  <div class="card border-dark mb-2" style="width: 70%; margin: auto;" id="review-<%=review.id%>">
+    <div class="card-header" data-toggle="collapse" href="#card-collapse-<%=review.id%>" role="button">
+      <h3>Author: <%= review.author %></h3>
+    </div>
+    <div class="card-body collapse" id="card-collapse-<%=review.id%>">
+      <p><%= review.content %></p>
+    </div>
   </div>
 <% end %>

@@ -13,9 +13,9 @@ RSpec.describe "As an authenticated user" do
 
     it "should have button to discover top 40 movies" do
       VCR.use_cassette("top_40_rated_movies", allow_playback_repeats: true) do
-        visit movies_path
+        visit users_path
 
-        click_on 'Discover Top 40 Movies'
+        click_on 'Top Rated Movies!'
         expect(current_path).to eq(movies_path)
       end
     end
@@ -38,13 +38,13 @@ RSpec.describe "As an authenticated user" do
 
     it "shows top 40 movies when I click the button" do
       VCR.use_cassette("top_40_rated_movies", allow_playback_repeats: true) do
-        visit movies_path
-        click_on 'Discover Top 40 Movies'
+        visit users_path
+        click_on 'Top Rated Movies!'
 
-        expect(page).to have_css('.top-rated')
-        expect(page).to have_css('.movie-row', count: 40)
+        expect(page).to have_css('#top-rated')
+        expect(page).to have_css('#movie-rows', count: 40)
 
-        within(first('.movie-row')) do
+        within(first('#movie-rows')) do
           expect(page).to have_link("Gabriel's Inferno Part II")
           expect(page).to have_content(8.9)
         end

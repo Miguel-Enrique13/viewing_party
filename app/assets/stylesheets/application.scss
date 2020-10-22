@@ -13,7 +13,7 @@
  */
 
  @import "bootstrap";
- @import "welcome";
+ @import "themestrap";
 
 body {
   display: flex;
@@ -31,13 +31,29 @@ footer {
   flex-direction: row;
 }
 
-.error-flash {
-  padding: 10px;
-  background-color: red;
-  color: white;
+h1, h2, center {
+  text-align: center;
 }
-.success-flash {
-  padding: 10px;
-  background-color: green;
-  color: white;
+
+main {
+  width: 95%;
+  padding-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-form {
+  width: 50%;
+  margin: auto;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.create-viewing-party-button {
+  width: 70% !important;
+  margin: auto;
+  font-size: 2rem !important;
+  margin-bottom: 1.5rem !important;
 }
