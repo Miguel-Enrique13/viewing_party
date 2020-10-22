@@ -15,7 +15,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def index; end
+  def index
+    @invitations = Party.invited_parties(@current_user.id)
+  end
 
   def destroy
     session[:user_id] = nil

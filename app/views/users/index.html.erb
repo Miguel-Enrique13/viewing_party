@@ -45,7 +45,7 @@
 
     <div id="invited">
       <h1 class="text-left">Invited parties:</h1>
-        <% if @current_user.invitations.any? %>
+        <% if @invitations.any? %>
           <table class="table">
             <thead>
               <tr>
@@ -54,7 +54,7 @@
                 <th>Time</th>
               </tr>
             </thead>
-          <% @current_user.invitations.each do |invite|  %>
+          <% @invitations.each do |invite|  %>
           <div id="invite-<%=invite.id%>">
             <tbody>
               <tr>
