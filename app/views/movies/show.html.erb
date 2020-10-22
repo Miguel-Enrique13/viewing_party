@@ -4,7 +4,11 @@
     <h1><%= @movie.title %></h1>
   </div>
   <div class="movie-poster my-2 text-center">
-    <%= image_tag @movie.poster %>
+    <% if @movie.poster %>
+      <%= image_tag @movie.poster%>
+    <% else %>
+      <h3>No poster found for this movie.</h3>
+    <% end %>
   </div>
   <div class="card-body">
     <h5 class="text-center">Vote Average: <%= @movie.vote_average %></h5>
