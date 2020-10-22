@@ -13,4 +13,8 @@ class Party < ApplicationRecord
       Invitation.create!(party_id: self.id, user_id: id)
     end
   end
+
+  def self.invited_parties(id)
+    Party.joins(:invitations).select("parties.*").where("invitations.user_id = #{id}")
+  end
 end
